@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import download from "downloadjs";
+
+import getResume from "../services/getResume";
 
 import { useFormik } from "formik";
 
 function GetForm() {
+
   const formik = useFormik({
     initialValues: {
       filename: null,
     },
-    onSubmit: (values) => {
+
+    onSubmit: async (values) => {
       console.log(values);
-      axios
+      getResume(values.filename).then((file) => {
+        download(file, values.filename);
+
+      });
+      /* axios
         .get(`/api/pdf/${values.filename}`, {
           file: values.filename,
         })
         .then((res) => {
-          console.log(res);
-        });
+          console.log(res.data);
+          const blob = res.blob()
+          download(blob, 'Sample')
+        }) 
+        .catch((err) => {
+          // error message
+        }); */
     },
     // validate: (values) => {
     //   let errors = {};
@@ -40,14 +54,22 @@ function GetForm() {
         className="filenameInput"
         {...formik.getFieldProps("filename")}
       />
+
       <button type="submit" className="submitBtn">
         Submit
       </button>
-      {/* {formik.errors.filename && formik.touched.filename && (
-        <div className="getForm__error">{formik.errors.file}</div>
-      )} */}
     </form>
   );
 }
 
 export default GetForm;
+
+/*if (pdf) {
+    return (
+      <a href={pdf} without rel="noopener noreferrer" target="_blank">
+        <button trailingIcon="picture_as_pdf" label="Resume">
+          PDF
+        </button>
+      </a>
+    );
+  } */
