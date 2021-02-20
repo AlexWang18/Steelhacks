@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
+const fileUpload = require("express-fileupload");
 
 const logger = require("../utils/logger");
 

@@ -10,7 +10,8 @@
     "express-async-errors": "^3.1.1",
     "express-fileupload": "^1.2.1",
     "morgan": "^1.10.0",
-    "pdf.js-extract": "^0.1.5"
+    "pdf.js-extract": "^0.1.5",
+    "typo-js": "^1.2.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
