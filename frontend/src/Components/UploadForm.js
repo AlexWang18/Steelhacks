@@ -11,7 +11,7 @@ function UploadForm() {
     onSubmit: (values) => {
       console.log(values);
       axios
-        .post(`/`, {
+        .post(`/upload`, {
           file: values.file,
         })
         .then((res) => {

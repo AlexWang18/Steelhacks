@@ -11,7 +11,7 @@ function GetForm() {
     onSubmit: (values) => {
       console.log(values);
       axios
-        .get(`/pdf/${values.filename}`, {
+        .get(`/api/pdf/${values.filename}`, {
           file: values.filename,
         })
         .then((res) => {
