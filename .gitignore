@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # uploads
-/assets
+# /assets test to see if its causing problems for heroku
 
 # dependencies
 /node_modules
