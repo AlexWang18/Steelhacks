@@ -39,7 +39,7 @@ function UploadForm() {
       name="uploadForm"
     >
       <label htmlFor="resume" className="uploadLabel">
-        Upload your PDF now
+        Upload your PDF
       </label>
       <input
         type="file"

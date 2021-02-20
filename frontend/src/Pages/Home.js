@@ -6,7 +6,7 @@ import UploadForm from "../Components/UploadForm";
 function Home() {
   return (
     <main className="home">
-      <h1 className="title">Resu.me</h1>
+      <h1 className="title">resu.me</h1>
       <div className="features">
         <GetForm />
         <UploadForm />

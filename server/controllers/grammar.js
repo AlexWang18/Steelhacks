@@ -11,6 +11,23 @@ const Typo = require("typo-js");
 
 const dictionary = new Typo("en_US");
 
+const isSentence = (line) => {
+  const words = line.split(" ");
+  if (words.length <= 2) return false;
+  else if (line == "\t" || line == " " || line == "-") return false;
+  // add more tests
+
+  return true;
+};
+
+let possibleErrors = [];
+
+const checkSpelling = (line) => {
+  let errors = line.split(" ").filter((w) => !dictionary.check(w));
+  console.log(errors);
+  possibleErrors = possibleErrors.concat(errors);
+};
+
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   const file = __dirname + `/../../assets/${id}.pdf`;
@@ -22,14 +39,13 @@ router.get("/:id", async (req, res) => {
     if (err) return console.log(err);
     text = data.pages[0].content
       .map((line) => line.str)
-      .filter((l) => l !== "\t" && l !== " ");
-   
-   // console.log(text);
+      .filter((l) => isSentence(l));
+    
+    text.forEach((line) => !checkSpelling(line));
+    res.json({ PossibleErrors: possibleErrors });
   });
-
-  let suggestions = dictionary.suggest("automaton")
- // console.log(suggestions);
-  res.json({ message: `You have one spelling error on line 4, ${suggestions}` });
+  
+  //res.json({ message: `You have one spelling error on line 4` });
 });
 
 module.exports = router;
