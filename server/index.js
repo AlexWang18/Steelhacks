@@ -1,7 +1,7 @@
-const config = require('./server/utils/config')
-const logger = require('./server/utils/logger')
+const config = require('./utils/config')
+const logger = require('./utils/logger')
 
-const app = require('./server/app')
+const app = require('./app')
 const http = require('http')
 
 const server = http.createServer(app)

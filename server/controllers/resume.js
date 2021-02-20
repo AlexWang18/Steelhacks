@@ -8,7 +8,7 @@ const router = express.Router();
 
 const assets = path.resolve(__dirname, "../../assets");
 
-router.get("/", async (req, res) => {
+router.get("^/i(nfo)?(moration)?", async (req, res) => {
   fs.readdir(assets, (err, files) => {
     if (err)
       res.status(500).json({ error: "There was an issue fetching the files" });
@@ -16,10 +16,6 @@ router.get("/", async (req, res) => {
       res.json({ message: `There are ${files.length} resumes available` });
     }
   });
-});
-
-router.get("/test", (req, res) => {
-  res.json({ message: "hi" });
 });
 
 router.get("/pdf/:id", async (req, res) => {
@@ -30,9 +26,9 @@ router.get("/pdf/:id", async (req, res) => {
     if (!file) {
       res.json({ error: "no file such file exists" });
     }
-    const filePath = path.resolve(__dirname, `../../assets/${id}`);
+    //const filePath = path.resolve(__dirname, `../../assets/${id}`);
 
-    console.log(filePath);
+    // console.log(filePath);
 
     res.download(file, (err) => {
       if (err) {
@@ -44,13 +40,8 @@ router.get("/pdf/:id", async (req, res) => {
   }
 });
 
-router.get("/AlexWang", async (req, res) => {
-  const file = `${__dirname}/../../assets/AlexWang.pdf`;
-  res.download(file, (err) => {
-    if (err) {
-      logger.error(err);
-    } else logger.info("success");
-  });
+router.get("/test", (req, res) => {
+  res.json({ message: "hi" });
 });
 
 module.exports = router;

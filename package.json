@@ -2,13 +2,15 @@
   "name": "resume.me",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "/server/index.js",
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "express-fileupload": "^1.2.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pdf.js-extract": "^0.1.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -16,8 +18,10 @@
   },
   "scripts": {
     "start": "node server",
-    "dev": "cross-env nodemon index.js",
-    "test": "echo \"not supported\""
+    "dev": "cross-env nodemon server",
+    "test": "echo \"not supported\"",
+    "build": "cd react-ui/ && npm install && npm run build",
+    "deploy": "git push heroku HEAD:main"
   },
   "repository": {
     "type": "git",
