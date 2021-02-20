@@ -1,0 +1,23 @@
+{
+  "name": "resume.me",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"not supported\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexWang18/Steelhacks.git"
+  },
+  "author": "alexw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexWang18/Steelhacks/issues"
+  },
+  "homepage": "https://github.com/AlexWang18/Steelhacks#readme"
+}
