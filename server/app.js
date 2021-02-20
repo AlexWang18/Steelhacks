@@ -19,6 +19,8 @@ app.use('/api', resumeRouter)
 app.use('/upload', uploadRouter)
 app.use('/check', grammarRouter)
 
+// serve static build files
+
 app.get('/', async(req, res) => {
     res.send('<h1>Hello World!</h1>')
 })
