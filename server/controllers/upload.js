@@ -6,6 +6,7 @@ const fileUpload = require("express-fileupload");
 const logger = require("../utils/logger");
 
 router.post("/", async (req, res) => {
+  console.log(req);
   try {
     if (!req.files) {
       res.send({
