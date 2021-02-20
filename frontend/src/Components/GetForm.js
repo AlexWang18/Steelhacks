@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import download from "downloadjs";
 
-import getResume from "../services/getResume";
+import {getResume, getInfo} from "../services/getResume";
 
 import { useFormik } from "formik";
 
 function GetForm() {
+  const [number, setNumber] = useState(0);
 
+  useEffect(async () => {
+    console.log("hi")
+    await getInfo().then(data => {
+      console.log(data)
+      setNumber(data.available)
+    })
+  })
   const formik = useFormik({
     initialValues: {
       filename: null,
@@ -17,7 +25,6 @@ function GetForm() {
       console.log(values);
       getResume(values.filename).then((file) => {
         download(file, values.filename);
-
       });
       /* axios
         .get(`/api/pdf/${values.filename}`, {
@@ -43,22 +50,25 @@ function GetForm() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="getForm" name="getForm">
-      <label htmlFor="file" className="getLabel">
-        Get your Resume
-      </label>
-      <input
-        type="test"
-        name="filename"
-        id="filename"
-        className="filenameInput"
-        {...formik.getFieldProps("filename")}
-      />
+    <>
+      <form onSubmit={formik.handleSubmit} className="getForm" name="getForm">
+        <label htmlFor="file" className="getLabel">
+          Get your Resume
+        </label>
+        <input
+          type="test"
+          name="filename"
+          id="filename"
+          className="filenameInput"
+          {...formik.getFieldProps("filename")}
+        />
 
-      <button type="submit" className="submitBtn">
-        Submit
-      </button>
-    </form>
+        <button type="submit" className="submitBtn">
+          Submit
+        </button>
+      </form>
+      <p>There are {number} resumes available</p>
+    </>
   );
 }
 

@@ -13,7 +13,7 @@ router.get("^/i(nfo)?(moration)?", async (req, res) => {
     if (err)
       res.status(500).json({ error: "There was an issue fetching the files" });
     if (files.length) {
-      res.json({ message: `There are ${files.length} resumes available` });
+      res.json({ message: `There are ${files.length} resumes available`, available: files.length });
     }
   });
 });
