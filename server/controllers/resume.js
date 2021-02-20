@@ -13,12 +13,16 @@ router.get('/resume', (req, res) => {
     res.send('<p> hi </p>')
 })
 
-router
-
 
 router.get('/AlexWang', async(req, res) => {
     const file = `${__dirname}/../../assets/AlexWang.pdf`;
     res.send(file);
+})
+
+router.get('/:id', async(req, res) => {
+    // find the document with mongoose?
+    const file = `${__dirname}/../../assets/${id}.pdf`
+    res.send(file)
 })
 
 module.exports = router;
