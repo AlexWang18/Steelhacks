@@ -21,7 +21,7 @@ app.use("/check", grammarRouter);
 
 
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
-// serve static build files
+// serve static build folder
 
 app.get("/", async (req, res) => {
   res.send("<h1>Hello World!</h1>");

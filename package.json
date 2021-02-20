@@ -21,7 +21,7 @@
     "start": "node server",
     "dev": "cross-env nodemon server",
     "test": "echo \"not supported\"",
-    "build": "cd react-ui/ && npm install && npm run build",
+    "build": "cd frontend/ && npm install && npm run build",
     "deploy": "git push heroku HEAD:main"
   },
   "repository": {
