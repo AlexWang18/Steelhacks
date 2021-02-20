@@ -4,10 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.7"
+  },
   "scripts": {
+    "start": "node server",
+    "dev": "cross-env nodemon app.js",
     "test": "echo \"not supported\""
   },
   "repository": {
