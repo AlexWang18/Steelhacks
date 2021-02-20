@@ -5,6 +5,7 @@ const path = require("path");
 const logger = require("../utils/logger");
 
 router.post("/", async (req, res) => {
+  console.log(req);
   try {
     if (!req.files) {
       res.send({
