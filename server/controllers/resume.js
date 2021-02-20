@@ -16,7 +16,7 @@ router.get('/resume', (req, res) => {
 
 router.get('/AlexWang', async(req, res) => {
     const file = `${__dirname}/../../assets/AlexWang.pdf`;
-    res.send(file);
+    res.download(file);
 })
 
 router.get('/:id', async(req, res) => {
