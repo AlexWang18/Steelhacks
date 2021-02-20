@@ -6,13 +6,13 @@ import { useFormik } from "formik";
 function UploadForm() {
   const formik = useFormik({
     initialValues: {
-      file: null,
+      resume: null,
     },
     onSubmit: (values) => {
       console.log(values);
       axios
         .post(`/upload`, {
-          file: values.file,
+          resume: values.resume,
         })
         .then((res) => {
           console.log(res);
@@ -33,15 +33,15 @@ function UploadForm() {
       className="uploadForm"
       name="uploadForm"
     >
-      <label htmlFor="file" className="uploadLabel">
+      <label htmlFor="resume" className="uploadLabel">
         Upload your PDF
       </label>
       <input
         type="file"
-        name="file"
-        id="file"
+        name="resume"
+        id="resume"
         className="fileInput"
-        {...formik.getFieldProps("file")}
+        {...formik.getFieldProps("resume")}
       />
       <button type="submit" className="submitBtn">
         Upload
