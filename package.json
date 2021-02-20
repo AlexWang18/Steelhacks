@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node server",
-    "dev": "cross-env nodemon app.js",
+    "dev": "cross-env nodemon index.js",
     "test": "echo \"not supported\""
   },
   "repository": {

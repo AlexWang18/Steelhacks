@@ -1,9 +1,22 @@
 const config = require("../utils/config");
 const logger = require("../utils/logger");
 const path = require("path");
+const fs = require("fs"); // file system module
 
 const express = require("express");
 const router = express.Router();
+
+const assets = path.resolve(__dirname, "../../assets");
+
+router.get("/", async (req, res) => {
+  fs.readdir(assets, (err, files) => {
+    if (err)
+      res.status(500).json({ error: "There was an issue fetching the files" });
+    if (files.length) {
+      res.json({ message: `There are ${files.length} resumes available` });
+    }
+  });
+});
 
 router.get("/test", (req, res) => {
   res.json({ message: "hi" });
@@ -14,11 +27,11 @@ router.get("/pdf/:id", async (req, res) => {
 
   try {
     const file = __dirname + `/../../assets/${id}.pdf`;
-    if(!file) {
-        res.json({error: "no file such file exists"})
+    if (!file) {
+      res.json({ error: "no file such file exists" });
     }
     const filePath = path.resolve(__dirname, `../../assets/${id}`);
-    
+
     console.log(filePath);
 
     res.download(file, (err) => {
