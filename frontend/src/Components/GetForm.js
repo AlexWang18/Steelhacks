@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import download from "downloadjs";
 
-import {getResume, getInfo} from "../services/getResume";
+import { getResume, getInfo } from "../services/getResume";
 
 import { useFormik } from "formik";
 
@@ -10,12 +10,12 @@ function GetForm() {
   const [number, setNumber] = useState(0);
 
   useEffect(async () => {
-    console.log("hi")
-    await getInfo().then(data => {
-      console.log(data)
-      setNumber(data.available)
-    })
-  })
+    console.log("hi");
+    await getInfo().then((data) => {
+      console.log(data);
+      setNumber(data.available);
+    });
+  });
   const formik = useFormik({
     initialValues: {
       filename: null,
@@ -26,18 +26,6 @@ function GetForm() {
       getResume(values.filename).then((file) => {
         download(file, values.filename);
       });
-      /* axios
-        .get(`/api/pdf/${values.filename}`, {
-          file: values.filename,
-        })
-        .then((res) => {
-          console.log(res.data);
-          const blob = res.blob()
-          download(blob, 'Sample')
-        }) 
-        .catch((err) => {
-          // error message
-        }); */
     },
     // validate: (values) => {
     //   let errors = {};
@@ -46,7 +34,6 @@ function GetForm() {
     //     errors.filename = "Required";
     //   }
     //   return errors;
-    // },
   });
 
   return (
