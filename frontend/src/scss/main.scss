@@ -1,0 +1,67 @@
+// Helpers
+@import "./helpers/variables";
+@import "./helpers/mixins";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $sansFont;
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  @media screen and (min-width: $tabletWidth) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .title {
+    font-size: 4rem;
+    font-family: $monoFont;
+  }
+  .uploadForm {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 4rem;
+    &__error {
+      color: black;
+      font-weight: bold;
+      background-color: lightcoral;
+      border-radius: 20px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .uploadLabel {
+      font-family: $monoFont;
+    }
+    .fileInput {
+      font-family: $sansFont;
+      background-color: white;
+      border-radius: 0 20px 20px 0;
+    }
+    .submitBtn {
+      font-size: 0.875rem;
+      border: none;
+      border-radius: 20px;
+      padding: 0 1rem;
+      min-width: 88px;
+      height: 32px;
+      font-family: $sansFont;
+      font-weight: bold;
+      background-color: aquamarine;
+      &:focus {
+        outline: none;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+          0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+          0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+          0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
+        transform: scale(0.9);
+      }
+    }
+  }
+}
