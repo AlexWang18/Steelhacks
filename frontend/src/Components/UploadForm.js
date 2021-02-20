@@ -35,10 +35,11 @@ function UploadForm() {
       action="/upload"
       method="post"
       className="uploadForm"
+      encType="multipart/form-data"
       name="uploadForm"
     >
       <label htmlFor="resume" className="uploadLabel">
-        Upload your PDF
+        Upload your PDF now
       </label>
       <input
         type="file"

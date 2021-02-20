@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
         message: "No file uploaded",
       });
     } else {
-      let file = req.files.resume;
+      let file = req.files.resume
       const uploadPath = path.resolve(__dirname, "../../assets", file.name);
       //console.log(uploadPath)
       file.mv(uploadPath, (err) => {
