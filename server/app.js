@@ -4,17 +4,19 @@ const middleware = require('./utils/middleware');
 const morgan = require('morgan')
 
 const app = express();
+const fileUpload = require('express-fileupload')
+
 const resumeRouter = require('./controllers/resume')
-const pdfRouter = require('./controllers/pdf')
+const uploadRouter = require('./controllers/upload')
 
 
 app.use(express.json());
-
+app.use(fileUpload({ safeFileNames: true, preserveExtension: true }))
 app.use(morgan('tiny'))
 
 app.use('/api', resumeRouter)
 
-app.use('/pdf', pdfRouter)
+app.use('/upload', uploadRouter)
 
 app.get('/', async(req, res) => {
     res.send('<h1>Hello World!</h1>')
