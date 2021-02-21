@@ -10,7 +10,6 @@ function GetForm() {
   const [number, setNumber] = useState(0);
 
   useEffect(async () => {
-    console.log("hi");
     await getInfo().then((data) => {
       console.log(data);
       setNumber(data.available);

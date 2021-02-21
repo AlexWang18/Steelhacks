@@ -21,9 +21,11 @@ const isSentence = (line) => {
 };
 
 let possibleErrors = [];
+/*
 
+*/
 const checkSpelling = (line) => {
-  let errors = line.split(" ").filter((w) => !dictionary.check(w));
+  let errors = line.split(" ").filter((w) => !dictionary.check(w)); // check with Typo library
   console.log(errors);
   possibleErrors = possibleErrors.concat(errors);
 };
@@ -32,7 +34,7 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
   const file = __dirname + `/../../assets/${id}.pdf`;
   if (!file) {
-    res.json({ error: "no file such file exists" });
+    res.json({ error: "no such file exists" });
   }
   let text = "";
   pdfExtract.extract(file, {}, (err, data) => {
