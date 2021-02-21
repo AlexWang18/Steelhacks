@@ -3,7 +3,7 @@
 
 ## resu.me
 
-[See the website here](https://dashboard.heroku.com/apps/shielded-chamber-18134)  
+[See the website here](https://shielded-chamber-18134.herokuapp.com/)  
 ### Built With
 
 * Express
@@ -68,4 +68,3 @@ npm install
 npm start
 ```
 
-https://dashboard.heroku.com/apps/shielded-chamber-18134
