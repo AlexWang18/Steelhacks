@@ -3,16 +3,16 @@
 
 ## resu.me
 
-[See the website here](https://shielded-chamber-18134.herokuapp.com/)  
+[See the website here](https://shielded-chamber-18134.herokuapp.com/)  (subject to dyno sleeping)
 
 ## Available Endpoints
    * GET  https://shielded-chamber-18134.herokuapp.com/api/info  
           
-          Returns number of resumes currently stored in the repository. 
+          Returns number of resumes currently stored in the repository.
           
    * GET  https://shielded-chamber-18134.herokuapp.com/api/pdf/AlexWang
         
-          Parameter: file name excluding the extension.
+          Parameter: file name excluding the extension. (Case sensitive)
           Fetch an individual pdf stored in the repository. Note this does return the raw binary data, it must be converted.
    * POST https://shielded-chamber-18134.herokuapp.com/upload
  
