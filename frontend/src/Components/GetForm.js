@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import download from "downloadjs";
 
 import { getResume, getInfo } from "../services/getResume";
@@ -11,6 +10,7 @@ function GetForm() {
 
   useEffect(async () => {
     await getInfo().then((data) => {
+
       console.log(data);
       setNumber(data.available);
     });
@@ -48,12 +48,11 @@ function GetForm() {
           className="filenameInput"
           {...formik.getFieldProps("filename")}
         />
-
+        <p className="resumesAvailable">There are {number} resumes available</p>
         <button type="submit" className="submitBtn">
           Submit
         </button>
       </form>
-      <p>There are {number} resumes available</p>
     </>
   );
 }
