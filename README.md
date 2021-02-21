@@ -4,17 +4,36 @@
 ## resu.me
 
 [See the website here](https://shielded-chamber-18134.herokuapp.com/)  
-### Built With
+
+## Available Endpoints
+   * GET  https://shielded-chamber-18134.herokuapp.com/api/info  
+          
+          Returns number of resumes currently stored in the repository. 
+          
+   * GET  https://shielded-chamber-18134.herokuapp.com/api/pdf/AlexWang
+        
+          Parameter: file name excluding the extension.
+          Fetch an individual pdf stored in the repository. Note this does return the raw binary data, it must be converted.
+   * POST https://shielded-chamber-18134.herokuapp.com/upload
+ 
+          Key: resume     Value: yourFile.pdf     (In form data) 
+          Add your resume to your repository for storage. Note that there are no repeats and usage is subject to daily quotas.
+          
+   * GET  https://shielded-chamber-18134.herokuapp.com/check/AlexWang
+  
+          Parameter: file name excluding the extension.
+          Replace AlexWang with the PDF file you want to scan for possible spelling mistakes. Returns an array of problematic words. Note the PDF file must have been uploaded already
+   
+    
+
+## Built With
 
 * Express
 * React
 * Sass
 * Swift
 * Heroku
-## Getting Started
 
-To get a local copy up and running follow these simple steps.
-Fork the here https://github.com/AlexWang18/Personal-Website.git
 ## Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
