@@ -8,9 +8,9 @@ import { useFormik } from "formik";
 function GetForm() {
   const [number, setNumber] = useState(0);
 
-  useEffect(() => {
-    console.log("hi");
-    getInfo().then((data) => {
+  useEffect(async () => {
+    await getInfo().then((data) => {
+
       console.log(data);
       setNumber(data.available);
     });
