@@ -33,10 +33,7 @@
 * Sass
 * Swift
 * Heroku
-## Getting Started
 
-To get a local copy up and running follow these simple steps.
-Fork the here https://github.com/AlexWang18/Personal-Website.git
 ## Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
