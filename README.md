@@ -9,11 +9,15 @@
    * GET  https://shielded-chamber-18134.herokuapp.com/api/info  
           
           Returns number of resumes currently stored in the repository.
-          
+   
+   * GET  https://shielded-chamber-18134.herokuapp.com/api/pdf
+           
+          Returns the list of resumes currently available in the repository        
    * GET  https://shielded-chamber-18134.herokuapp.com/api/pdf/AlexWang
         
           Parameter: file name excluding the extension. (Case sensitive)
           Fetch an individual pdf stored in the repository. Note this does return the raw binary data, it must be converted.
+   
    * POST https://shielded-chamber-18134.herokuapp.com/upload
  
           Key: resume     Value: yourFile.pdf     (In form data) 
