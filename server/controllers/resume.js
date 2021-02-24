@@ -18,6 +18,16 @@ router.get("^/i(nfo)?(moration)?", async (req, res) => {
   });
 });
 
+let totalFiles = [];
+router.get("/pdf", async (req, res) => {
+  fs.readdir(assets, (err, files) => {
+    files.forEach(file => {
+     // console.log(file)
+    })
+    res.json(files)
+  }) 
+})
+
 router.get("/pdf/:id", async (req, res) => {
   const id = req.params.id;
 
