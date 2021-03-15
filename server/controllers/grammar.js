@@ -13,8 +13,16 @@ const dictionary = new Typo("en_US");
 
 const isSentence = (line) => {
   const words = line.split(" ");
+
   if (words.length <= 2) return false;
+
+  else if (line.length <= 2) return false; // abbrievations
+  
   else if (line == "\t" || line == " " || line == "-") return false;
+  
+  else if (line.match('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$ ')) return false; // phone numbers
+  
+  else if (line.match('^\d{1,2}(\/?|\-?)\d{4}$')) return false; // dates
   // add more tests
 
   return true;
